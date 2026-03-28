@@ -165,3 +165,14 @@ input, select, textarea {
     border-radius: 8px;
     min-height: 50px; /* Ensures the box has space */
 }
+input[type="tel"] {
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+/* Make sure the select dropdown is large enough for fingers */
+select {
+    height: 55px;
+    background-color: #fff;
+}
