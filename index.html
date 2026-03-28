@@ -92,11 +92,33 @@
             </div>
             <hr>
             <h3>Send a Message</h3>
-           <form id="contact-form">
-    <input type="text" id="farmer-name" placeholder="Your Name" required>
-    <textarea id="farmer-msg" placeholder="Describe your problem..." required></textarea>
-    <button type="submit" class="btn btn-secondary">Send to Professionals</button>
-</form>
+           <div class="card">
+    <h3>Direct Message to Experts</h3>
+    <p style="font-size: 0.9rem; margin-bottom: 15px;">Enter your details below. An expert will call or text you back.</p>
+    
+    <form id="contact-form">
+        <label for="farmer-name">Full Name</label>
+        <input type="text" id="farmer-name" placeholder="e.g. Kwesi Mensah" required>
+
+        <label for="farmer-phone">Phone Number (Required)</label>
+        <input type="tel" id="farmer-phone" placeholder="e.g. 024XXXXXXX" required>
+
+        <label for="contact-method">How should we contact you?</label>
+        <select id="contact-method">
+            <option value="Call">Phone Call</option>
+            <option value="WhatsApp">WhatsApp Message</option>
+            <option value="SMS">Normal SMS</option>
+        </select>
+
+        <label for="farmer-msg">Describe your problem</label>
+        <textarea id="farmer-msg" placeholder="Tell us about your crops..." rows="4" required></textarea>
+        
+        <button type="submit" class="btn btn-secondary">Send Message</button>
+    </form>
+    
+    <div id="contact-success" class="hidden" style="margin-top:15px; padding:15px; background:#dcfce7; color:#166534; border-radius:8px; border:1px solid #bbf7d0;">
+    </div>
+</div>
 <div id="contact-success" class="hidden" style="color: green; font-weight: bold; margin-top: 10px;"></div>
         </section>
     </main>
