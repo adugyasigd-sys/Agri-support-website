@@ -59,39 +59,62 @@ async function getWeather() {
         display.innerHTML = "<p style='color: red;'>⚠️ Connection failed. Please check your data/internet and try again.</p>";
     }
 }
-// 4. Contact Professionals Logic
+// --- 4. CONTACT PROFESSIONALS LOGIC (COMPLETE) ---
+
+// A. Handle the Main Contact Form
 const contactForm = document.getElementById('contact-form');
 const contactSuccess = document.getElementById('contact-success');
 
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // Prevents the page from refreshing
+        e.preventDefault();
         
         const name = document.getElementById('farmer-name').value;
-        const message = document.getElementById('farmer-msg').value;
+        const phone = document.getElementById('farmer-phone').value;
+        const method = document.getElementById('contact-method').value;
 
-        // Since this is a prototype, we show a success message
-        contactSuccess.classList.remove('hidden');
-        contactSuccess.innerHTML = `✅ Thank you, ${name}! Your message has been sent to our experts. They will contact you soon.`;
-        
-        // Clear the form
-        contactForm.reset();
-        
-        // Hide message after 5 seconds
+        // Change button state
+        const submitBtn = this.querySelector('button');
+        submitBtn.innerText = "Sending...";
+        submitBtn.disabled = true;
+
         setTimeout(() => {
-            contactSuccess.classList.add('hidden');
-        }, 5000);
+            contactSuccess.classList.remove('hidden');
+            contactSuccess.innerHTML = `
+                <strong>✅ Message Sent!</strong><br>
+                Thank you ${name}. An expert will reach you at <b>${phone}</b> via <b>${method}</b> shortly.
+            `;
+            
+            contactForm.reset();
+            submitBtn.innerText = "Send Message";
+            submitBtn.disabled = false;
+            
+            contactSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 1500);
     });
 }
 
-// Logic for the small "Message" buttons next to expert names
+// B. Handle the Small "Message" Buttons (Next to Expert names)
+// We look for any button with the class 'btn-sm'
 document.querySelectorAll('.btn-sm').forEach(button => {
     button.addEventListener('click', function() {
+        // Find the name of the expert in the bold <strong> tag
         const expertName = this.parentElement.querySelector('strong').innerText;
-        alert("Opening private chat with " + expertName + "...");
-        document.getElementById('farmer-msg').placeholder = "Write your message to " + expertName + " here...";
-        document.getElementById('experts').scrollIntoView({ behavior: 'smooth' });
+        
+        // 1. Alert the user
+        alert("Preparing message for " + expertName + "...");
+        
+        // 2. Automatically fill the message box for the farmer
+        const messageBox = document.getElementById('farmer-msg');
+        messageBox.value = "Hello " + expertName + ", I need help with my crops. ";
+        
+        // 3. Scroll down to the form so they can finish their message
+        document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });
+        
+        // 4. Put the cursor in the message box automatically
+        messageBox.focus();
     });
+});
 });
 // Updated Contact Logic
 const contactForm = document.getElementById('contact-form');
