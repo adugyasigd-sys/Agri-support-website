@@ -154,25 +154,37 @@ input, select, textarea {
     .btn { width: auto; }
 }
 
-/* Add this to the bottom of style.css */
 .hidden {
     display: none !important;
 }
 
-#diagnosis-result {
-    margin-top: 20px;
+.card {
+    background: #fff;
     padding: 20px;
-    border-radius: 8px;
-    min-height: 50px; /* Ensures the box has space */
-}
-input[type="tel"] {
-    letter-spacing: 1px;
-    font-weight: bold;
-    color: var(--primary);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
 }
 
-/* Make sure the select dropdown is large enough for fingers */
-select {
-    height: 55px;
-    background-color: #fff;
+/* Larger tap targets for farmers on mobile */
+button, select, input {
+    min-height: 48px;
+    font-size: 1rem;
+}
+
+.expert-item {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-sm {
+    background: #e5e7eb;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
 }
