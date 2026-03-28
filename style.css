@@ -1,0 +1,167 @@
+/* Color Palette */
+:root {
+    --primary: #2d6a4f; /* Deep Green */
+    --secondary: #97a97c; /* Leaf Green */
+    --accent: #7f5539; /* Soil Brown */
+    --bg: #f8f9fa;
+    --text: #1b4332;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 18px; /* Larger base font for readability */
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header {
+    background: var(--white);
+    padding: 1rem 0;
+    border-bottom: 2px solid var(--secondary);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Mobile First Sections */
+section {
+    padding: 2rem 0;
+}
+
+.hero {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.hero h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+.card {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+}
+
+/* Forms & Inputs */
+label {
+    display: block;
+    margin: 1rem 0 0.5rem;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+/* Buttons - Large and Tap-friendly */
+.btn {
+    display: inline-block;
+    padding: 18px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    width: 100%; /* Full width on mobile */
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.btn-primary { background: var(--primary); color: white; }
+.btn-secondary { background: var(--accent); color: white; }
+.btn-sm { padding: 10px; background: #eee; border: 1px solid #ccc; border-radius: 5px; }
+
+/* Weather Display */
+.weather-display {
+    background: #e9f5db;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.temp { font-size: 3rem; font-weight: bold; display: block; }
+
+/* Results */
+.result-box {
+    margin-top: 20px;
+    padding: 20px;
+    background: #fff3cd;
+    border-left: 5px solid #ffc107;
+    border-radius: 5px;
+}
+
+/* Desktop Adjustments */
+@media (min-width: 600px) {
+    .quick-actions {
+        display: flex;
+        gap: 10px;
+    }
+    .btn { width: auto; }
+}
+
+/* Add this to the bottom of style.css */
+.hidden {
+    display: none !important;
+}
+
+#diagnosis-result {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    min-height: 50px; /* Ensures the box has space */
+}

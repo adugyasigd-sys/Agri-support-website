@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriSupport | Simple Farming Help</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <div class="logo">🌿 AgriSupport</div>
+            <ul class="nav-links">
+                <li><a href="#weather">Weather</a></li>
+                <li><a href="#diagnosis">Health</a></li>
+                <li><a href="#experts">Experts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Simple help for your farm.</h1>
+            <p>Check weather, diagnose crop problems, and talk to experts.</p>
+            <div class="quick-actions">
+                <a href="#diagnosis" class="btn btn-primary">Check My Crop</a>
+                <a href="#experts" class="btn btn-secondary">Talk to Expert</a>
+            </div>
+        </section>
+
+        <section id="weather" class="card">
+            <h2>☁️ Local Weather</h2>
+            <div class="search-box">
+                <input type="text" id="city-input" placeholder="Enter your town...">
+                <button type= "button" onclick="getWeather()">Check</button>
+            </div>
+            <div id="weather-result" class="weather-display">
+                <p>Enter your town to see rain and heat updates.</p>
+            </div>
+        </section>
+
+        <section id="diagnosis" class="card">
+            <h2>🔍 Crop Health Check</h2>
+            <p>Tell us what is wrong with your plant.</p>
+            <form id="diagnosis-form">
+                <label>What crop is it?</label>
+                <select id="crop-name" required>
+                    <option value="">Select Crop</option>
+                    <option value="maize">Maize (Corn)</option>
+                    <option value="cassava">Cassava</option>
+                    <option value="tomato">Tomato</option>
+                    <option value="rice">Rice</option>
+                    <option value="cocoa">Cocoa</option>
+                </select>
+
+                <label>Leaf Color</label>
+                <select id="leaf-color">
+                    <option value="normal">Green (Normal)</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="brown-spots">Brown Spots</option>
+                    <option value="white-powder">White Powder</option>
+                </select>
+
+                <label>Damage Seen</label>
+                <select id="damage-type">
+                    <option value="none">None</option>
+                    <option value="holes">Holes in leaves</option>
+                    <option value="dry">Dry/Wilting</option>
+                    <option value="rot">Rotting parts</option>
+                </select>
+
+                <button type="submit" class="btn btn-primary">Get Diagnosis</button>
+            </form>
+            <div id="diagnosis-result" class="hidden"></div>
+        </section>
+
+        <section id="experts" class="card">
+            <h2>📞 Contact an Expert</h2>
+            <div class="expert-list">
+                <div class="expert-item">
+                    <strong>Dr. Sarah Mensah</strong>
+                    <p>Crop Disease Specialist</p>
+                    <button class="btn-sm">Message</button>
+                </div>
+                <div class="expert-item">
+                    <strong>John Okoro</strong>
+                    <p>Soil & Fertilizer Expert</p>
+                    <button class="btn-sm">Message</button>
+                </div>
+            </div>
+            <hr>
+            <h3>Send a Message</h3>
+           <form id="contact-form">
+    <input type="text" id="farmer-name" placeholder="Your Name" required>
+    <textarea id="farmer-msg" placeholder="Describe your problem..." required></textarea>
+    <button type="submit" class="btn btn-secondary">Send to Professionals</button>
+</form>
+<div id="contact-success" class="hidden" style="color: green; font-weight: bold; margin-top: 10px;"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 AgriSupport. Built for farmers.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
