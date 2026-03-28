@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgriSupport | Simple Farming Help</title>
+    <title>AgriSupport | Farming Help</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -23,18 +23,17 @@
     <main class="container">
         <section class="hero">
             <h1>Simple help for your farm.</h1>
-            <p>Check weather, diagnose crop problems, and talk to experts.</p>
+            <p>Check weather, diagnose crops, and talk to experts instantly.</p>
             <div class="quick-actions">
                 <a href="#diagnosis" class="btn btn-primary">Check My Crop</a>
-                <a href="#experts" class="btn btn-secondary">Talk to Expert</a>
             </div>
         </section>
 
         <section id="weather" class="card">
             <h2>☁️ Local Weather</h2>
             <div class="search-box">
-                <input type="text" id="city-input" placeholder="Enter your town...">
-                <button type= "button" onclick="getWeather()">Check</button>
+                <input type="text" id="city-input" placeholder="Enter your town (e.g. Kumasi)">
+                <button type="button" onclick="getWeather()" class="btn-search">Check Weather</button>
             </div>
             <div id="weather-result" class="weather-display">
                 <p>Enter your town to see rain and heat updates.</p>
@@ -43,11 +42,10 @@
 
         <section id="diagnosis" class="card">
             <h2>🔍 Crop Health Check</h2>
-            <p>Tell us what is wrong with your plant.</p>
             <form id="diagnosis-form">
                 <label>What crop is it?</label>
                 <select id="crop-name" required>
-                    <option value="">Select Crop</option>
+                    <option value="">-- Select Crop --</option>
                     <option value="maize">Maize (Corn)</option>
                     <option value="cassava">Cassava</option>
                     <option value="tomato">Tomato</option>
@@ -63,11 +61,11 @@
                     <option value="white-powder">White Powder</option>
                 </select>
 
-                <label>Damage Seen</label>
+                <label>Visible Damage</label>
                 <select id="damage-type">
                     <option value="none">None</option>
                     <option value="holes">Holes in leaves</option>
-                    <option value="dry">Dry/Wilting</option>
+                    <option value="dry">Dry / Wilting</option>
                     <option value="rot">Rotting parts</option>
                 </select>
 
@@ -82,49 +80,36 @@
                 <div class="expert-item">
                     <strong>Dr. Sarah Mensah</strong>
                     <p>Crop Disease Specialist</p>
-                    <button class="btn-sm">Message</button>
+                    <button type="button" class="btn-sm">Message Expert</button>
                 </div>
                 <div class="expert-item">
                     <strong>John Okoro</strong>
                     <p>Soil & Fertilizer Expert</p>
-                    <button class="btn-sm">Message</button>
+                    <button type="button" class="btn-sm">Message Expert</button>
                 </div>
             </div>
-            <hr>
-            <h3>Send a Message</h3>
-           <div class="card">
-    <h3>Direct Message to Experts</h3>
-    <p style="font-size: 0.9rem; margin-bottom: 15px;">Enter your details below. An expert will call or text you back.</p>
-    
-    <form id="contact-form">
-        <label for="farmer-name">Full Name</label>
-        <input type="text" id="farmer-name" placeholder="e.g. Kwesi Mensah" required>
 
-        <label for="farmer-phone">Phone Number (Required)</label>
-        <input type="tel" id="farmer-phone" placeholder="e.g. 024XXXXXXX" required>
+            <div class="contact-box">
+                <h3>Send a Message</h3>
+                <form id="contact-form">
+                    <input type="text" id="farmer-name" placeholder="Your Full Name" required>
+                    <input type="tel" id="farmer-phone" placeholder="Phone Number (e.g. 024XXXXXXX)" inputmode="tel" required>
+                    
+                    <select id="contact-method">
+                        <option value="Call">Call me back</option>
+                        <option value="WhatsApp">WhatsApp me</option>
+                    </select>
 
-        <label for="contact-method">How should we contact you?</label>
-        <select id="contact-method">
-            <option value="Call">Phone Call</option>
-            <option value="WhatsApp">WhatsApp Message</option>
-            <option value="SMS">Normal SMS</option>
-        </select>
-
-        <label for="farmer-msg">Describe your problem</label>
-        <textarea id="farmer-msg" placeholder="Tell us about your crops..." rows="4" required></textarea>
-        
-        <button type="submit" class="btn btn-secondary">Send Message</button>
-    </form>
-    
-    <div id="contact-success" class="hidden" style="margin-top:15px; padding:15px; background:#dcfce7; color:#166534; border-radius:8px; border:1px solid #bbf7d0;">
-    </div>
-</div>
-<div id="contact-success" class="hidden" style="color: green; font-weight: bold; margin-top: 10px;"></div>
+                    <textarea id="farmer-msg" placeholder="Describe your crop problem here..." required></textarea>
+                    <button type="submit" class="btn btn-secondary">Send Message</button>
+                </form>
+                <div id="contact-success" class="hidden"></div>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 AgriSupport. Built for farmers.</p>
+        <p>&copy; 2026 AgriSupport. Designed for Rural Farmers.</p>
     </footer>
 
     <script src="script.js"></script>
