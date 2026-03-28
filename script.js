@@ -93,3 +93,39 @@ document.querySelectorAll('.btn-sm').forEach(button => {
         document.getElementById('experts').scrollIntoView({ behavior: 'smooth' });
     });
 });
+// Updated Contact Logic
+const contactForm = document.getElementById('contact-form');
+const contactSuccess = document.getElementById('contact-success');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('farmer-name').value;
+        const phone = document.getElementById('farmer-phone').value;
+        const method = document.getElementById('contact-method').value;
+
+        // Visual feedback: Change button text while "sending"
+        const submitBtn = this.querySelector('button');
+        const originalText = submitBtn.innerText;
+        submitBtn.innerText = "Sending...";
+        submitBtn.disabled = true;
+
+        // Simulate a network delay (1.5 seconds)
+        setTimeout(() => {
+            contactSuccess.classList.remove('hidden');
+            contactSuccess.innerHTML = `
+                <strong>✅ Message Sent!</strong><br>
+                Thank you ${name}. An expert will reach you at <b>${phone}</b> via <b>${method}</b> shortly.
+            `;
+            
+            // Reset form and button
+            contactForm.reset();
+            submitBtn.innerText = originalText;
+            submitBtn.disabled = false;
+            
+            // Scroll to the success message
+            contactSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 1500);
+    });
+}
